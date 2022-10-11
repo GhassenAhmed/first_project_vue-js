@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+      
+      <div class="product-container">
+        <div class="product-image">
+          <img :src="image" v-bind:alt="product">
+          <div class="reseau-sociaux">
+            
+          </div>
+        </div>
+
+        <div class="product-info">
+          
+          <h1><strong>{{product}}</strong></h1>
+          <h2><strong>Prix : </strong>{{price}}</h2>
+          <div class="cont-desc">
+          <p id="#desc" v-if="afficher_description"> Lorem, ipsum dolor sit amet consectetur adipisicing elit{{description}}<div id="#more"><strong><button @click="inverser()" type="button" class="btn btn-warning">{{more_less}}</button> </strong></div>
+           </p></div>
+
+          <p v-if="quantite>10">En stock : {{quantite}}</p>
+          <p v-else-if="quantite<=10 && quantite>0">Presque epuisee : <span style="color: red;">{{variant.quantite}}</span></p>
+          <p v-else><img style="width: 110px;height: 100px;" src="/assets/images/out-of-stock-img.png "alt=""></p>
+          <!--<p v-show="onSale">En vente</p>-->
+          <ul>
+            <h2><strong>Details :<br></strong></h2>
+            
+              <li v-for="detail in details" style="list-style-type: disc;">{{detail}}</li>
+          
+          </ul>
+          <div class="cart" style="border-radius: 5px;"><i class="fa-sharp fa-solid fa-cart-shopping"><span style="font-size: 20px; color:rgb(42, 42, 32); padding-left:15px ;"> {{cart}} </span></i></div>
+          <div v-for="variant in variants" :key="variant.id">
+            <button type="button" class="btn btn-light"  @mouseover="updateImage(variant.image)"    :style="{backgroundColor:variant.color}" style="border-radius: 10px;" >{{variant.color}} </button><br>
+          </div><br>
+          <select class="form-select" aria-label="Default select example" >
+            <option selected >Choisisez votre size </option>
+            <option value="1" v-for="pointure in pointures">{{pointure}}</option>
+          </select><br>
+          
+          
+          <button type="button" id="btn"  v-on:click="addToCart" :class="{disabledButton :quantite==0}"  > <span style="padding-right: 15px;">Ajoutez</span><i class="fa-sharp fa-solid fa-plus"></i> </button>
+          <button type="button" id="btn"  @click="decreaseCart" :class="{disabledButton :cart==0}"> <span style="padding-right: 15px;">Decrease </span><i class="fa-sharp fa-solid fa-minus"></i></button>
+          <button type="button" id="btn" @click="result" :class="{disabledButton : cart==0}" > <span style="padding-right: 15px;">Validez</span><i class="fa-sharp fa-solid fa-check"></i></button>
+          <button type="button" id="btn" @click="cansel" ><span style="padding-right: 15px;">Cancel</span><i class="fa-sharp fa-solid fa-xmark"></i></button>
+          <h3 style="color: rgb(235, 75, 16);"><strong>Votre achats</strong> {{resultat}} £</h3>
+          <i class="bi bi-cart-check"></i>
+          <!--Shorthand v-on:click == @click    -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Import Js -->
+    <script src="https://kit.fontawesome.com/c5bebe1cfa.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
