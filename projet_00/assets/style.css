@@ -4,7 +4,9 @@ body {
     font-family: tahoma;
     color: #282828;
   }
-  
+  .disabled_image{
+    filter: grayscale(1500);
+  }
   .button {
     margin: 30px;
     background-color: #113a6b;
@@ -19,6 +21,7 @@ body {
       inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
     text-align: center;
     cursor: pointer;
+    border: none;
   }
   #btn{
     color: #f7f7f7;
@@ -41,7 +44,7 @@ body {
   }
   
   .color-circle {
-    width: 50px;
+    width: 57px;
     height: 50px;
     margin-top: 8px;
     border: 2px solid #d8d8d8;
@@ -207,6 +210,10 @@ body {
 }
 
 .disabledButton{
+  background-color: grey !important;
+  cursor: not-allowed !important;
+}
+.disabledButtonCart{
   background-color: grey !important;
   cursor: not-allowed !important;
 }
