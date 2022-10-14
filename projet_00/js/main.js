@@ -21,7 +21,10 @@ const app=Vue.createApp(
                 pointures:['39','40','41','42','43','44','45'],
                 resultat:0,
                 afficher_description:0,
-                more_less:'More'
+                more_less:'More',
+                show:false
+                
+                
             }
         },
         methods:{
@@ -30,6 +33,11 @@ const app=Vue.createApp(
                     this.variants[this.select_variant].quantite--;
                     this.variants[this.select_variant].cart++;
                 }
+                if(this.variants[this.select_variant].id==2001){
+                    alert('green');
+                }
+                else
+                alert('bluse');
 
             },
             update_variant(index){
@@ -50,18 +58,24 @@ const app=Vue.createApp(
             
             cansel(){
                 this.variants[this.select_variant].cart=0;
-                this.variants[this.select_variant].quantite=this.variants[this.select_variant].quantite + this.variants[this.select_variant].cart;
+                if(this.variants[this.select_variant].id==2001){
+                    this.variants[this.select_variant].quantite=10;
+                }
+                else{
+                    this.variants[this.select_variant].quantite=25;
+                }
+                
                 this.resultat=0;
                 
             },
             inverser(){
                 if(this.afficher_description==1){
                     this.afficher_description=0;
-                    this.more_less="More";
+                    this.more_less="Plus";
                 }
                 else{
                     this.afficher_description=1;
-                    this.more_less="Less";
+                    this.more_less="Moins";
                 }
                 
             }
@@ -88,6 +102,9 @@ const app=Vue.createApp(
                 },
                 property(){
                     return this.brand+" "+this.product+"est en vente";
+                },
+                cansel_2(){
+                    return this.variants[this.select_variant].quantity;
                 }
 
             

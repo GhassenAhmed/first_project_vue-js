@@ -217,3 +217,35 @@ body {
   background-color: grey !important;
   cursor: not-allowed !important;
 }
+
+.popup-below {
+  position: fixed; /* Stay in place */
+  z-index: 999999999;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+   /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.popup_magasin{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  flex-direction: column;
+  border-radius: 5%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  padding: 50px;
+  
+
+}
+#return{
+  right: 0;
+  
+  font-size: 20px;
+  position: absolute;
+  margin-bottom: 500px;
+}
