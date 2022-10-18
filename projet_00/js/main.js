@@ -37,7 +37,7 @@ const app=Vue.createApp(
                     alert('green');
                 }
                 else
-                alert('bluse');
+                alert('blue');
 
             },
             update_variant(index){
