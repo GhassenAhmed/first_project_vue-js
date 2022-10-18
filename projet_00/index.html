@@ -15,85 +15,27 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
     
       <div class="nav-bar"></div>
       <div id="app">
-        <div  v-if="show"  class="popup-below">
-          <div v-if="show" class="popup_magasin">
-           <div class="return" type="button" @click="show=false" ><span id="return"><strong>X</strong></span></div>
-             <h1 style="background-color: rgb(170, 161, 161);">List Purchases :</h1>
-
-             <div class="card" style="width: 18rem;">
-              <img src="./assets/images/socks_blue.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{product}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-              </div>
-             
-        </div>
-      
-      <div class="product-container">
-        <div class="product-image">
-          <img :src="image" v-bind:alt="product" :class="{disabled_image: quantity==0}">
-          <div class="reseau-sociaux">
-            
-          </div>
-        </div>
-
-        <div class="product-info">
-          
-          <h1><strong>{{title}}</strong></h1>
-          <h2><strong>Prix : </strong>{{price}}</h2>
-          <div class="cont-desc">
-          <p id="#desc" v-if="afficher_description" style="font-style: italic;font-size:15px"> Lorem, ipsum dolor sit amet consectetur adipisicing elit{{description}}<div id="#more"><strong><button @click="inverser()" type="button" class="btn btn-warning">{{more_less}}</button> </strong></div>
-           </p></div>
-
-          <p v-if="quantity>10">En stock : {{quantity}}</p>
-          <p v-else-if="quantity<=10 && quantity>0">Presque epuisee : <span style="color: red;">{{quantity}}</span></p>
-          <p v-else><img style="width: 110px;height: 100px;" src="/assets/images/out-of-stock-img.png "alt=""></p>
-          <p v-show="onSale">{{property}}</p>
-          <ul>
-            <h2><strong>Details :<br></strong></h2>
-            
-              <li v-for="detail in details" style="list-style-type: disc;">{{detail}}</li>
-          
-          </ul>
-          <div class="cart" style="border-radius: 5px; " type="button" @click="show=true" :class="{disabledButtonCart:carts==0}" ><i class="fa-sharp fa-solid fa-cart-shopping"><span style="font-size: 20px; color:rgb(42, 42, 32); padding-left:15px ;"> {{carts}} </span></i></div>
-          <div v-for="(variant,index) in variants" :key="variant.id"
-          class="color-circle"  @mouseover="update_variant(index)"    
-          :style="{backgroundColor:variant.color}" style="cursor: pointer;padding: 10px;" >{{variant.color}}
-               
-          </div>
-          <select class="form-select" aria-label="Default select example" >
-            <option selected >Choisisez votre size </option>
-            <option value="1" v-for="pointure in pointures">{{pointure}}</option>
-          </select><br>
-          
-          
-          
-          <button type="button" id="btn"  v-on:click="addToCart" :class="{disabledButton :quantity==0}"  > <span style="padding-right: 15px;">Ajoutez</span><i class="fa-sharp fa-solid fa-plus"></i> </button>
-          <button type="button" id="btn"  @click="decreaseCart" :class="{disabledButton :carts==0}"> <span style="padding-right: 15px;">Decrease </span><i class="fa-sharp fa-solid fa-minus"></i></button>
-          <button type="button" id="btn" @click="result" :class="{disabledButton : carts==0}" > <span style="padding-right: 15px;">Validez</span><i class="fa-sharp fa-solid fa-check"></i></button>
-          <button type="button" id="btn" @click="cansel" ><span style="padding-right: 15px;">Cancel</span><i class="fa-sharp fa-solid fa-xmark"></i></button>
-          <h3 style="color: rgb(235, 75, 16);"><strong>Votre achats</strong> {{resultat}} £</h3>
-          <i class="bi bi-cart-check"></i>
-          <!--Shorthand v-on:click == @click    -->
-        </div>
-      </div>
-    </div>
+       
+      <display-product></display-product>
+       </div>
     
     <div class="mb-3 row">
-      <label for="inputPassword" class="col-sm-1 col-form-label">Vos Avis !</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword">
-        
-      </div>
+      <comment></comment>
+      
     </div>
+    
     
     
     <!-- Import Js -->
     <script src="https://kit.fontawesome.com/c5bebe1cfa.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <!--Import component-->
+    <script src="components/productDisplay.js"></script>
+    <script src="components/comment.js"></script>
+    <script>
+      const mountedApp=app.mount("#app");
+    </script>
+
   </body>
 </html>
 
