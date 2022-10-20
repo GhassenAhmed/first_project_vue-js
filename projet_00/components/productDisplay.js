@@ -138,7 +138,7 @@ app.component("display-product",{
             },
             result(){
                 
-              this.resultat=parseInt(this.price)*parseInt(this.variants[this.select_variant].cart); 
+              this.resultat=parseInt(this.price)*parseInt(carts); 
               
 
             },
@@ -195,6 +195,7 @@ app.component("display-product",{
         list_color(){
             return this.variants[this.select_variant].color;
         },
+       
         
     }
 

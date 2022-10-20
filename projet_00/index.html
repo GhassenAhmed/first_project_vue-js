@@ -25,10 +25,10 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
           <div class="container text-center">
               <div class="row">
                   <div class="col">
-                      <input type="text" class="form-control"  id="inputPassword">
+                      <input type="text" class="form-control"  id="inputcommenter">
                   </div>
                   <div class="col">
-                      <button type="button" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary" @click="Add_commenter">Submit</button>
                   </div>
               </div>
           </div>
@@ -42,8 +42,10 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
     <script src="https://kit.fontawesome.com/c5bebe1cfa.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <!--Import component-->
+    
     <script src="components/productDisplay.js"></script>
     <script src="components/comment.js"></script>
+    
     <script>
       const mountedApp=app.mount("#app");
     </script>
