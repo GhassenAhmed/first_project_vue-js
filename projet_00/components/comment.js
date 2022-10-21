@@ -1,4 +1,4 @@
-app.component("commentProduct",{
+app.component("comment-product",{
     data(){
         return{
            commenter:0 ,
@@ -9,8 +9,7 @@ app.component("commentProduct",{
     /*html*/
     template:
     `
-           
-
+   
     `,
     methods:{
         Add_commenter(){
