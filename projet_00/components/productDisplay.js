@@ -16,6 +16,7 @@ app.component("display-product",{
                     {id:2001,color:"green",image:'./assets/images/socks_green.jpg',quantite:10,cart:0},
                     {id:2002,color:"blue",image:'./assets/images/socks_blue.jpg',quantite:25,cart:0},  
                 ],
+                reviews:[],
                 pointures:['39','40','41','42','43','44','45'],
                 resultat:0,
                 afficher_description:0,
@@ -114,6 +115,8 @@ app.component("display-product",{
         <!--Shorthand v-on:click == @click    -->
       </div>
     </div>
+    <review-list v-if="reviews.length" :reviews="reviews" ></review-list>
+    <review-form @review-submitted="addReview"></review-form>
   </div>
     `,
     methods:{
