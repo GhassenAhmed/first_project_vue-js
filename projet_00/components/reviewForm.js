@@ -4,7 +4,7 @@ app.component('review-form',{
             name:'',
             review:'',
             rating:null,
-            //recommandation:null
+            recommandation:null
 
         }
 
@@ -29,10 +29,10 @@ app.component('review-form',{
         <option value="">1</option>
       </select>
       <label for="rating">Recommanderiez-vous ce produit ?</label>
-      <!--<select id="recommandation" v-mode.number=" recommandation">
+      <select id="recommandation" >
         <option value="" >Yes</option>
         <option value="" >Non</option>
-      </select>-->
+      </select>
 
       <input type="submit" class="button" value="envoyer" @submit.prevent="onSubmit" >
       </form>
@@ -43,13 +43,13 @@ app.component('review-form',{
                 name:this.name,
                 review:this.review,
                 rating:this.rating,
-                //recommandation:this.recommandation
+                recommandation:this.recommandation
             }
             this.$emit('review-submitted',productReview);
             this.name='';
             this.review='';
             this.rating=null;
-            //this.recommandation=null;
+            this.recommandation=null;
             if(this.name==='' || this.review==='' || this.rating===null){
                 alert('remplissez vos champs !');
             }
