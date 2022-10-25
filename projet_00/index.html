@@ -16,7 +16,7 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
       <div class="nav-bar"></div>
       <div id="app">
        
-      <display-product></display-product>
+      <display-product :premium="premium" :cart="cart" :details:="details" > </display-product>
        </div>
     
        
@@ -30,6 +30,7 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
     <script src="components/productDisplay.js"></script>
     <script src="components/reviewForm.js"></script>
     <script src="components/reviewList.js"></script>
+    <script src="components/productDetail.js"></script>
     
     <script>
       const mountedApp=app.mount("#app");

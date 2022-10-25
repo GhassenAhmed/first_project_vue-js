@@ -1,4 +1,15 @@
 app.component("display-product",{
+    props:{
+        premium:{
+            type:Boolean,
+            required:true,
+        },
+        cart:{
+            type:Number,
+            required:true,
+        },
+        
+    },
     data (){
         return{
         product:'Chaussettes',
@@ -89,9 +100,10 @@ app.component("display-product",{
         <ul>
           <h2><strong>Details :<br></strong></h2>
           
-            <li v-for="detail in details" style="list-style-type: disc;">{{detail}}</li>
+           <product-detail :details="details"></product-detail>
         
         </ul>
+        <p> Expedition :{{shipping}}</p>
         <div class="cart" style="border-radius: 5px; " type="button" @click="show=true" :class="{disabledButtonCart:carts==0}" ><i class="fa-sharp fa-solid fa-cart-shopping"><span style="font-size: 20px; color:rgb(42, 42, 32); padding-left:15px ; "> {{carts}} </span></i></div>
         <div v-for="(variant,index) in variants" :key="variant.id"
         class="color-circle"  @mouseover="update_variant(index)"    
@@ -113,13 +125,20 @@ app.component("display-product",{
         <h3 style="color: rgb(235, 75, 16);"><strong>Votre achats</strong> {{resultat}} £</h3>
         <i class="bi bi-cart-check"></i>
         <!--Shorthand v-on:click == @click    -->
+        
+       
       </div>
     </div>
-    <review-list v-if="reviews.length" :reviews="reviews" ></review-list>
+    
     <review-form @review-submitted="addReview"></review-form>
+    <review-list  :reviews="reviews" ></review-list>
+   
   </div>
     `,
     methods:{
+        addReview(review){
+            this.reviews.push(review);
+        },
             addToCart(){
                 if(this.variants[this.select_variant].quantite>0){
                     this.variants[this.select_variant].quantite--;
@@ -198,6 +217,10 @@ app.component("display-product",{
         list_color(){
             return this.variants[this.select_variant].color;
         },
+        shipping(){
+            return this.premium==true ?'gratuis':'8 Dt';
+        },
+        
        
         
     }

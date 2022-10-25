@@ -39,6 +39,9 @@ app.component('review-form',{
     `,
     methods:{
         onSubmit(){
+            if(this.name==='' || this.review==='' || this.rating===null){
+                alert('remplissez vos champs !');
+            }else{
             let productReview = {
                 name:this.name,
                 review:this.review,
@@ -50,13 +53,10 @@ app.component('review-form',{
             this.review='';
             this.rating=null;
             this.recommandation=null;
-            if(this.name==='' || this.review==='' || this.rating===null){
-                alert('remplissez vos champs !');
-            }
+        }
+          
         },
-        addReview(review){
-            this.reviews.push(review);
-        },
+      
     }
 
 })
