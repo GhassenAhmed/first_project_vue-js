@@ -120,29 +120,7 @@ body {
     width: 50%;
   }
   
-  .review-form {
-    display: flex;
-    flex-direction: column;
-    width: 425px;
-    padding: 20px;
-    margin: 40px;
-    border: 2px solid #d8d8d8;
-    background-color: white;
-    -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
-    box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
-  }
   
-  .review-container {
-    width: 425px;
-    padding: 20px;
-    background-color: white;
-    -webkit-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
-    -moz-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
-    box-shadow: 2px 20px -12px rgba(0, 0, 0, 0.57);
-    margin-left: 40px;
-    border: 2px solid #d8d8d8;
-  }
   
   .review-container li {
     margin-bottom: 30px;
@@ -256,5 +234,77 @@ body {
   margin-bottom: 500px;
   text-align: center;
 }
+.commenter{
+  
+  margin-right: 20px;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.review-form {
+  margin-top: 100px;
+  margin-bottom: 50px;
+
+  flex-direction: column;
+  display: flex;
+  border-radius: 15px;
+  width: 1000px;
+  padding: 20px;
+  margin-left: 25%;
+  border: 2px solid #fff;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
+}
+
+.review-container {
+  width: 410px;
+  padding-top: 20px;
+  width: 1000px;
+  padding-bottom: 50px;
+  margin-left: 25%;
+  box-sizing: content-box;
+  background-color: rgb(147, 225, 249);
+ border-radius: 10px;
+ box-shadow: #282828 5px 10px;
+ overflow: hidden;
+}
+.h3{
+  background-color:rgb(48, 93, 243) ;
+  padding-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 3px;
+  padding-bottom: 20px;
+  
+}
+label{
+  color: #113a6b;
+  font-style: oblique;
+  font-variant: small-caps;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+.review-container li{
+  color: #070742;
+}
+#li{
+  color: #282828;
+  font-style: oblique;
+  font-variant: small-caps;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  font-size: 34px;
+  letter-spacing: 3px;
+
+}
+.review-container h3{
+  font-style: oblique;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 4px;
+  color: darkblue;
+  
+}
+
 
 

@@ -13,14 +13,16 @@ app.component('review-form',{
     /*html*/
     `
     <form class="review-form" @submit.prevent="onSubmit">
-      <h3>Laisser un commentaire</h3>
-      <label for="name">Nom :</label>
+        <div class="h3">
+      <h3> <strong>Send us your feedback !<strong></h3>
+      </div>
+      <label for="name">name </label>
       <input type="text" id="name" v-model="name">
 
-      <label for="review">Commentaire</label>
+      <label for="review">Commenter</label>
       <textarea name="" id="review" v-model="review" ></textarea>
 
-      <label for="rating">Evaluation</label>
+      <label for="rating">Evolution</label>
       <select name="" id="rating" v-model.number="rating">
         <option value="">5</option>
         <option value="">4</option>
@@ -28,7 +30,7 @@ app.component('review-form',{
         <option value="">2</option>
         <option value="">1</option>
       </select>
-      <label for="rating">Recommanderiez-vous ce produit ?</label>
+      <label for="rating">this product ?</label>
       <select id="recommandation" >
         <option value="" >Yes</option>
         <option value="" >Non</option>
@@ -36,6 +38,9 @@ app.component('review-form',{
 
       <input type="submit" class="button" value="envoyer" @submit.prevent="onSubmit" >
       </form>
+
+
+       
     `,
     methods:{
         onSubmit(){

@@ -4,16 +4,13 @@ app.component("display-product",{
             type:Boolean,
             required:true,
         },
-        cart:{
-            type:Number,
-            required:true,
-        },
+        
         
     },
     data (){
         return{
         product:'Chaussettes',
-                price:'5£',
+                price:5,
                 select_variant:0,
                // quantite:25,
                 description:' Dolorem iusto maiores libero minus pariatur nonplaceat culpa nihil blanditiis labore asperiores error porro rerum corporis obcaecati eius maxime cupiditate nobis!',
@@ -27,6 +24,7 @@ app.component("display-product",{
                     {id:2001,color:"green",image:'./assets/images/socks_green.jpg',quantite:10,cart:0},
                     {id:2002,color:"blue",image:'./assets/images/socks_blue.jpg',quantite:25,cart:0},  
                 ],
+                //cart:[],
                 reviews:[],
                 pointures:['39','40','41','42','43','44','45'],
                 resultat:0,
@@ -88,14 +86,14 @@ app.component("display-product",{
       <div class="product-info">
         
         <h1><strong>{{title}}</strong></h1>
-        <h2><strong>Prix : </strong>{{price}}</h2>
+        <h2><strong>Prix : </strong>{{price}}$</h2>
         <div class="cont-desc">
         <p id="#desc" v-if="afficher_description" style="font-style: italic;font-size:15px"> Lorem, ipsum dolor sit amet consectetur adipisicing elit{{description}}<div id="#more"><strong><button @click="inverser()" type="button" class="btn btn-warning">{{more_less}}</button> </strong></div>
          </p></div>
 
         <p v-if="quantity>10">En stock : {{quantity}}</p>
         <p v-else-if="quantity<=10 && quantity>0">Presque epuisee : <span style="color: red;">{{quantity}}</span></p>
-        <p v-else><img style="width: 110px;height: 100px;" src="/assets/images/out-of-stock-img.png "alt=""></p>
+        <p v-else><img style="width: 110px;height: 100px;" src="./assets/images/out-of-stock-img.png "alt=""></p>
         <p v-show="onSale">{{property}}</p>
         <ul>
           <h2><strong>Details :<br></strong></h2>
@@ -130,37 +128,49 @@ app.component("display-product",{
       </div>
     </div>
     
-    <review-form @review-submitted="addReview"></review-form>
-    <review-list  :reviews="reviews" ></review-list>
-   
+    
   </div>
+
+
+  <div class="commenter">
+  <review-form @review-submitted="addReview"></review-form>
+  <review-list  :reviews="reviews" ></review-list>
+  </div>
+  
     `,
     methods:{
         addReview(review){
             this.reviews.push(review);
         },
             addToCart(){
-                if(this.variants[this.select_variant].quantite>0){
-                    this.variants[this.select_variant].quantite--;
-                    this.variants[this.select_variant].cart++;
-                }
-                
+              this.variants[this.select_variant].cart+=1;
+              this.variants[this.select_variant].quantite-=1;
 
-
+               
             },
             update_variant(index){
                 this.select_variant=index;
             },
             decreaseCart(){
-                if(this.variants[this.select_variant].cart>0){
-                    this.variants[this.select_variant].quantite++;
-                    this.variants[this.select_variant].cart--;
+                if(this.variants[this.select_variant].quantite==2001){
+                    this.variants[this.select_variant].quantite+=1;
+                    this.variants[this.select_variant].cart-=1;
                 }
+                else{
+                    this.variants[this.select_variant].quantite+=1;
+                    this.variants[this.select_variant].cart-=1;
+                    
+                    
+                }
+
+                
+
+                
                 
             },
             result(){
                 
-              this.resultat=parseInt(this.price)*parseInt(carts); 
+                this.resultat=parseInt(this.price)*parseInt(this.cart);
               
 
             },
