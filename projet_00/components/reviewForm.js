@@ -31,7 +31,7 @@ app.component('review-form',{
         <option value="">1</option>
       </select>
       <label for="rating">this product ?</label>
-      <select id="recommandation" >
+      <select id="recommandation" v-model="recommandation" >
         <option value="" >Yes</option>
         <option value="" >Non</option>
       </select>
@@ -51,7 +51,8 @@ app.component('review-form',{
                 name:this.name,
                 review:this.review,
                 rating:this.rating,
-                recommandation:this.recommandation
+                recommandation:this.recommandation,
+               
             }
             this.$emit('review-submitted',productReview);
             this.name='';

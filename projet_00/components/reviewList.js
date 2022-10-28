@@ -18,6 +18,7 @@ app.component('review-list',{
         <span id="li">Commenter : </span>"{{review.review}}"
         <br/>
         <span id="li">Recommande:</span>{{review.recommandation}}
+        
           </li>
         </ul>
         </div>
