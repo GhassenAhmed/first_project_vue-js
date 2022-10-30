@@ -306,5 +306,47 @@ label{
   
 }
 
+footer{
+  background: linear-gradient(-90deg, #84cf6a, #16c0b0);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+}
+footer h1{
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  color: rgb(45, 14, 75);
+}
+.loader{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border-top: 5px solid #061919;
+  animation: 2s spin linear infinite ;
+  margin-left: 50%;
+  
 
-
+}
+.loader::before{
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  content: "";
+  border-bottom: 5px solid #f303fc;
+  border-radius: 50%;
+}
+@keyframes spin{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+    
+  }
+}

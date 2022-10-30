@@ -4,6 +4,10 @@ app.component("display-product",{
             type:Boolean,
             required:true,
         },
+        details:{
+            type:Array,
+            required:true,
+        }
         
         
     },
