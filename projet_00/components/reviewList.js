@@ -13,15 +13,16 @@ app.component('review-list',{
         
         <ul>
           <li v-for="(review, index) in reviews" :key="index">
-            <span id="li" >{{review.name}}:</span> a donne {{review.rating}} étoiles
+            <span id="li" style="font-variant: small-caps;">{{review.name}}:</span> a donne {{review.rating}} <i class="fa-regular fa-star"></i>
         <br/>
         <span id="li">Commenter : </span>"{{review.review}}"
         <br/>
-        <span id="li">Recommande:</span>{{review.recommandation}}
+        <span id="li">Recommande :</span>{{review.recommandation}}
         
           </li>
         </ul>
         </div>
+        
        
     `
 })
