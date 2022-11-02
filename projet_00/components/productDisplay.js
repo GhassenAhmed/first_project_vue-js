@@ -35,8 +35,10 @@ app.component("display-product",{
                 afficher_description:0,
                 more_less:'More',
                 show:false,
-                list_ajout_count_green:0,
-                list_ajout_count_blue:0
+                list_ajout:[],
+                list_green:0,
+                list_blue:0
+                
             }
     },
     /*html*/
@@ -54,7 +56,7 @@ app.component("display-product",{
                 <div class="card-body">
                 <h5 class="card-title"><strong>{{product+ brand}}</strong></h5>
                 <h6>Green</h6>
-                <h6>{{list_ajout_count_green}}</h6> 
+                <h6>{{list_green}}</h6> 
                 <button type="reset" class="btn btn-danger" @click="decreaseCart">Delete</button>
                 </div>
        </div>
@@ -65,7 +67,7 @@ app.component("display-product",{
                 <div class="card-body">
                 <h5 class="card-title"><strong>{{product+ brand}}</strong></h5>
                 <h6>Blue</h6>
-                <h6>{{list_ajout_count_blue}}</h6> 
+                <h6>{{list_blue}}</h6> 
                 <button type="reset" class="btn btn-danger" @click="decreaseCart">Delete</button>
                 </div>
        </div>
@@ -110,7 +112,7 @@ app.component("display-product",{
         <button type="button" id="btn" @click="result" :class="{disabledButton : carts==0}"> <span style="padding-right: 15px;">Validez</span><i class="fa-sharp fa-solid fa-check"></i></button>
         <button type="button" id="btn" @click="cansel"><span style="padding-right: 15px;">Cancel</span><i class="fa-sharp fa-solid fa-xmark"></i></button>
         <h3 style="color: rgb(235, 75, 16);"><strong>Votre achats</strong> {{resultat}} £</h3>
-        
+        <p>{{list_green}}</p>
         <i class="bi bi-cart-check"></i>
         <!--Shorthand v-on:click == @click    -->
       </div>
@@ -126,12 +128,19 @@ app.component("display-product",{
             this.reviews.push(review);
         },
             addToCart(){
+                let id= this.variants[this.select_variant].id;
+                let array=this.list_ajout;
               this.variants[this.select_variant].cart+=1;
               this.variants[this.select_variant].quantite-=1;
-              
-
-               
+                if(this.variants[this.select_variant].id==2001){
+                    list_green+=1;
+                }
+                else list_blue+=1;
+                
             },
+              
+            
+            
             update_variant(index){
                 this.select_variant=index;
             },
