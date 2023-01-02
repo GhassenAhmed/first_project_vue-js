@@ -16,7 +16,7 @@ const app=Vue.createApp(
             
 
       
-    }
+    })
 
 
 //monte notre app dans dom 
