@@ -2,7 +2,7 @@ app.component('product-detail',{
     props:{
         details:{
             type:Array,
-            required:true
+            required:true,
         }
     },
     data(){
