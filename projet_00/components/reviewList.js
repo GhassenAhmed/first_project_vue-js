@@ -1,7 +1,7 @@
 app.component('review-list',{
     props: {
         reviews : { 
-            type: Array
+            type: Array,
             required:true
         }
     },
